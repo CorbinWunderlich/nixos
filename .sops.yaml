@@ -1,0 +1,7 @@
+keys:
+  - &corbin age102nm53l6swvm5ajtd949rrdsw0kj9lnct7fkat36n0u2e4c8pfms4s52u5
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+    - age:
+      - *corbin
