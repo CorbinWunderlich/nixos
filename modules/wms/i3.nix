@@ -6,7 +6,10 @@
   config = lib.mkIf config.i3.enable {
     x.enable = true;
 
-    services.displayManager.enable = false;
+    services.displayManager.autoLogin = {
+      enable = true;
+      user = "corbin";
+    };
 
     environment.pathsToLink = [ "/libexec" ];
 
