@@ -1,4 +1,3 @@
-# i3 config from https://nixos.wiki/wiki/I3
 { config, pkgs, lib, ... }: {
   imports = [ ./x.nix ];
 
@@ -7,11 +6,9 @@
   config = lib.mkIf config.i3.enable {
     x.enable = true;
 
-    services.displayManager.defaultSession = "none+i3";
+    services.displayManager.enable = false;
 
-    environment.pathsToLink = [
-      "/libexec"
-    ]; # links /libexec from derivations to /run/current-system/sw
+    environment.pathsToLink = [ "/libexec" ];
 
     services.xserver.windowManager.i3 = {
       enable = true;

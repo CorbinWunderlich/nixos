@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options.x.enable = lib.mkEnableOption "Enables the X Windowing Server";
 
   config = lib.mkIf config.x.enable {

@@ -54,6 +54,23 @@
           }
         ];
       };
+
+      nixvm = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+
+	system = "x86_64-linux";
+
+	modules = [
+	  ./nixvm/configuration.nix
+
+	  home-manager.nixosModules.home-manager
+	  {
+	    home-manager.extraSpecialArgs = { inherit inputs; };
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.users.corbin = import ./users/corbin/nixvm/home.nix;
+	  }
+	];
+      };
     };
   };
 }
