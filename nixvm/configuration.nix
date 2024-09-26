@@ -38,8 +38,6 @@
   users.users.corbin = import ./../users/corbin/corbin.nix;
   users.defaultUserShell = pkgs.zsh;
 
-  environment.systemPackages = with pkgs; [ novnc xorg.xinit tigervnc ];
-
   services.openssh = {
     enable = true;
 

@@ -17,6 +17,8 @@
     };
 
     systemd.services."samba-credentials" = {
+      enable = true;
+
       script = ''
         echo "username=$(cat ${config.sops.secrets."samba/username".path})
         password=$(cat ${
