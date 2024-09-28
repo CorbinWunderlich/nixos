@@ -7,7 +7,10 @@ let
     ${pkgs.waypaper}/bin/waypaper --restore &
     ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &
     ${pkgs._1password-gui}/bin/1password --silent &
-    hyprctl setcursor rose-pine-hyprcursor 24
+    ${
+      inputs.hyprland.packages.${pkgs.system}.hyprland
+    }/bin/hyprctl setcursor rose-pine-hyprcursor 24 &
+    ${pkgs.xorg.xrandr}/bin/xrandr --output DP-2 -primary --size 3840x2160 &
   '';
 in {
   imports = [ ./widgets/ags.nix ];
