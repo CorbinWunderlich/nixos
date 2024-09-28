@@ -11,6 +11,7 @@
     ./tools/btrfs-assistant.nix
     ./tools/distrobox.nix
     ./tools/sops.nix
+    ./tools/printing.nix
 
     ./apps/kitty.nix
     ./apps/steam.nix
@@ -39,6 +40,8 @@
   distrobox.enable = lib.mkDefault true;
 
   sops.enable = lib.mkDefault true;
+
+  printing.enable = lib.mkDefault true;
 
   kitty.enable = lib.mkDefault true;
 
