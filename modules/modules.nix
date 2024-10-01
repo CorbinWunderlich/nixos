@@ -22,6 +22,8 @@
     ./apps/thunar.nix
     ./apps/bottles.nix
     ./apps/mission-center.nix
+    ./apps/thunderbird.nix
+    ./apps/chromium.nix
 
     ./common.nix
   ];
@@ -60,4 +62,8 @@
   bottles.enable = lib.mkDefault true;
 
   mission-center.enable = lib.mkDefault true;
+
+  thunderbird.enable = lib.mkDefault true;
+
+  chromium.enable = lib.mkDefault true;
 }
