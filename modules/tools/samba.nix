@@ -11,7 +11,7 @@
       options = let
         # this line prevents hanging on network split
         automount_opts =
-          "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+          "x-systemd.automount,noauto,x-systemd.idle-timeout=3,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
 
       in [
         "${automount_opts},credentials=/var/lib/samba-credentials/samba-credentials,uid=1000,gid=100"
