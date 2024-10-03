@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ lib, config, ... }: {
   options.kitty.enable = lib.mkEnableOption "Enables Kitty";
 
   config = lib.mkIf config.kitty.enable {
@@ -6,6 +6,8 @@
       enable = true;
 
       environment = { "TERM" = "xterm-256color"; };
+
+      shellIntegration.mode = "no-cursor";
 
       settings = {
         font_family = "JetBrainsMono NF SemiBold";
@@ -17,9 +19,8 @@
 
         cursor_shape = "underline";
         cursor_shape_unfocused = "underline";
-        shell_integration = "no-cursor";
 
-        cursor_beam_thickness = "1.5";
+        cursor_underline_thickness = 2;
 
         cursor_blink_interval = 0;
 
