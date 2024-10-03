@@ -7,7 +7,16 @@
       SUDO_EDITOR = "nvim";
     };
 
-    home.packages = with pkgs; [ nil nixfmt-classic stylua ripgrep fzf ];
+    home.packages = with pkgs; [
+      nil
+      nixfmt-classic
+      stylua
+      ripgrep
+      fzf
+      nodejs
+      cargo
+      libgcc
+    ];
 
     programs.neovim = {
       enable = true;
