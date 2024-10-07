@@ -11,6 +11,8 @@
     ./wms/hyprlock.nix
     ./wms/widgets/ags.nix
     ./wms/widgets/dunst.nix
+
+    ./common.nix
   ];
 
   passwordmanager.enable = lib.mkDefault true;
