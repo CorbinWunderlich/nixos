@@ -4,6 +4,7 @@
   hyprland.enable = false;
   kde.enable = false;
   i3.enable = true;
+  xrdp.enable = true;
 
   btrfs-assistant.enable = false;
 

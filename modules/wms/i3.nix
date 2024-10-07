@@ -7,7 +7,7 @@
     x.enable = true;
 
     services.displayManager.autoLogin = {
-      enable = true;
+      enable = false;
       user = "corbin";
     };
 

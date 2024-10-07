@@ -32,10 +32,17 @@ in {
           titlebar = false;
         };
 
-        startup = [{
-          command = "${pkgs.autotiling}/bin/autotiling -w 1 3 5 7 9";
-          always = true;
-        }];
+        startup = [
+          {
+            command = "${pkgs.autotiling}/bin/autotiling -w 1 3 5 7 9";
+            always = true;
+          }
+          {
+            command =
+              "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &";
+            always = true;
+          }
+        ];
 
         defaultWorkspace = "workspace number 1";
 

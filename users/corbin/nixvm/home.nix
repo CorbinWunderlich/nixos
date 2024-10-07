@@ -6,8 +6,6 @@
   i3.enable = true;
   ags.enable = false;
 
-  vnc.enable = true;
-
   home = {
     username = "corbin";
     homeDirectory = "/home/corbin";

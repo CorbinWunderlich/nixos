@@ -12,6 +12,7 @@
     ./tools/distrobox.nix
     ./tools/sops.nix
     ./tools/printing.nix
+    ./tools/xrdp.nix
 
     ./apps/kitty.nix
     ./apps/steam.nix
@@ -44,6 +45,8 @@
   sops.enable = lib.mkDefault true;
 
   printing.enable = lib.mkDefault true;
+
+  xrdp.enable = lib.mkDefault false;
 
   kitty.enable = lib.mkDefault true;
 

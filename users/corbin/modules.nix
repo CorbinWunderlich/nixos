@@ -5,7 +5,6 @@
     ./apps/neovim.nix
 
     ./tools/zsh.nix
-    ./tools/vnc.nix
 
     ./wms/i3.nix
     ./wms/hyprland.nix
@@ -19,7 +18,6 @@
   neovim.enable = lib.mkDefault true;
 
   zsh.enable = lib.mkDefault true;
-  vnc.enable = lib.mkDefault false;
 
   hyprland.enable = lib.mkDefault true;
   hyprlock.enable = lib.mkDefault true;
