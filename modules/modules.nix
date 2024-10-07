@@ -8,6 +8,7 @@
     ./tools/1password.nix
     ./tools/fonts.nix
     ./tools/pipewire.nix
+    ./tools/pulseaudio.nix
     ./tools/btrfs-assistant.nix
     ./tools/distrobox.nix
     ./tools/sops.nix
@@ -36,6 +37,7 @@
   samba.enable = lib.mkDefault true;
   passwordmanager.enable = lib.mkDefault true;
 
+  pulseaudio.enable = lib.mkDefault false;
   pipewire.enable = lib.mkDefault true;
 
   btrfs-assistant.enable = lib.mkDefault true;

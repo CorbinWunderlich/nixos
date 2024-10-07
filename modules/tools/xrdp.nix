@@ -5,6 +5,8 @@
     services.xrdp = {
       enable = true;
       defaultWindowManager = "${pkgs.i3}/bin/i3";
+
+      audio.enable = true;
     };
 
     security.polkit.enable = true;
