@@ -14,6 +14,7 @@
     ./tools/sops.nix
     ./tools/printing.nix
     ./tools/xrdp.nix
+    ./tools/fcitx.nix
 
     ./apps/kitty.nix
     ./apps/steam.nix
@@ -49,6 +50,8 @@
   printing.enable = lib.mkDefault true;
 
   xrdp.enable = lib.mkDefault false;
+
+  fcitx.enable = lib.mkDefault true;
 
   kitty.enable = lib.mkDefault true;
 

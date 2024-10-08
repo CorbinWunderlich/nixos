@@ -10,6 +10,8 @@ let
     ${
       inputs.hyprland.packages.${pkgs.system}.hyprland
     }/bin/hyprctl setcursor rose-pine-hyprcursor 24 &
+    ${pkgs.fcitx5-with-addons}/bin/fcitx5 -d -r &
+    ${pkgs.fcitx5-with-addons}/bin/fcitx5-remote -r &
     ${pkgs.xorg.xrandr}/bin/xrandr --output DP-2 -primary --size 3840x2160 &
   '';
 in {
@@ -181,6 +183,7 @@ in {
 
           "monitor DP-1, ^(vesktop)$"
           "workspace 2, ^(vesktop)$"
+          "pseudo, ^(fcitx)$"
         ];
 
         "$mainMod" = "SUPER";
