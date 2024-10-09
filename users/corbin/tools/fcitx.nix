@@ -19,8 +19,8 @@
 
       UseInputMethodLanguageToDisplayText = True
 
-      Theme = Material-Color-indigo
-      DarkTheme = Material-Color-indigo
+      Theme = Fluentdark-solid
+      DarkTheme = Fluentdark-solid
 
       UseAccentColor = True
 
