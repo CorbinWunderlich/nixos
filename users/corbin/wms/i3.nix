@@ -34,8 +34,8 @@ in {
 
         startup = [
           {
-            command = "${pkgs.autotiling}/bin/autotiling -w 1 3 5 7 9";
-            always = true;
+            command = "${pkgs.autotiling}/bin/autotiling 1 3 5 7 9";
+            always = false;
           }
           {
             command =
