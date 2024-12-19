@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   imports = [
     ./apps/1password.nix
     ./apps/kitty.nix
@@ -10,6 +10,7 @@
     ./wms/i3.nix
     ./wms/hyprland.nix
     ./wms/hyprlock.nix
+    ./wms/hyprpaper.nix
     ./wms/widgets/ags.nix
     ./wms/widgets/dunst.nix
 
@@ -25,6 +26,7 @@
 
   hyprland.enable = lib.mkDefault true;
   hyprlock.enable = lib.mkDefault true;
+  hyprpaper.enable = lib.mkDefault true;
   i3.enable = lib.mkDefault false;
   ags.enable = lib.mkDefault true;
   dunst.enable = lib.mkDefault true;

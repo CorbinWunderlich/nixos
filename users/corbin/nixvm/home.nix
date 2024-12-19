@@ -3,6 +3,7 @@
 
   hyprland.enable = false;
   hyprlock.enable = false;
+  hyprpaper.enable = false;
   i3.enable = true;
   ags.enable = false;
 
