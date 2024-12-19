@@ -1,21 +1,25 @@
-{ pkgs, lib, config, inputs, ... }:
-let
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}: let
   nixpkgs.config.allowUnfree = true;
 
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     ${pkgs.ags}/bin/ags &
-    ${pkgs.waypaper}/bin/waypaper --restore &
+    ${pkgs.hyprpaper}/bin/hyprpaper &
     ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &
     ${pkgs._1password-gui}/bin/1password --silent &
     ${
       inputs.hyprland.packages.${pkgs.system}.hyprland
     }/bin/hyprctl setcursor rose-pine-hyprcursor 24 &
-    ${pkgs.fcitx5-with-addons}/bin/fcitx5 -d -r &
-    ${pkgs.fcitx5-with-addons}/bin/fcitx5-remote -r &
-    ${pkgs.xorg.xrandr}/bin/xrandr --output DP-2 -primary --size 3840x2160 &
+    fcitx5 -dr &
+    fcitx5-remote -r &
   '';
 in {
-  imports = [ ./widgets/ags.nix ];
+  imports = [./widgets/ags.nix];
 
   options.hyprland.enable = lib.mkEnableOption "Enables Hyprland";
 
@@ -23,28 +27,14 @@ in {
     home.packages = [
       pkgs.hyprcursor
       pkgs.rose-pine-cursor
-      pkgs.waypaper
-      pkgs.swww
       pkgs.kora-icon-theme
       pkgs.nwg-look
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
       pkgs.slurp
       pkgs.wl-clipboard
-      #    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+      pkgs.xorg.xrandr
+      inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     ];
-
-    xdg.configFile."waypaper/config.ini".text = ''
-      [Settings]
-      language = en
-      picture = ~/Pictures/wallpapers/cities/wallhaven-gpedg3_3840x2160.png
-      folder = ~/Pictures/wallpapers
-      backend = swww
-      monitors = All
-      fill = Fill
-      sort = name
-      subfolders = True
-      number_of_columns = 3
-    '';
 
     home.pointerCursor = {
       gtk.enable = true;
@@ -62,10 +52,28 @@ in {
         package = pkgs.kora-icon-theme;
         name = "kora";
       };
+
+      cursorTheme = {
+        name = "BreezeX-RosePine-Linux";
+        package = pkgs.rose-pine-cursor;
+        size = 24;
+      };
+
+      theme = {
+        name = "Materia-dark";
+        package = pkgs.materia-theme-transparent;
+      };
+
+      font = {
+        name = "Inter SemiBold";
+        package = pkgs.inter;
+        size = 9.75;
+      };
     };
 
     wayland.windowManager.hyprland = {
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       settings = {
         exec-once = "${startupScript}/bin/start";
 
@@ -118,12 +126,14 @@ in {
             popups = 1;
           };
 
-          drop_shadow = "no";
-          shadow_range = 40;
-          shadow_render_power = 4;
-          "col.shadow" = "rgba(1a1a1a60)";
+          shadow = {
+            enabled = true;
+            range = 40;
+            render_power = 4;
+            color = "rgba(1a1a1a40)";
+          };
 
-          blurls = [ "dunst" "ags-bar" "top-bar" ];
+          blurls = ["dunst" "ags-bar" "top-bar" "fcitx" "fcitx5"];
 
           layerrule = [
             "blur, notifications"
@@ -139,6 +149,8 @@ in {
             "ignorezero, volume-popup"
             "blur, desktop-context-menu"
             "ignorezero, desktop-context-menu"
+            "blur, fcitx"
+            "blur, fcitx5"
           ];
         };
 
@@ -183,7 +195,6 @@ in {
 
           "monitor DP-1, ^(vesktop)$"
           "workspace 2, ^(vesktop)$"
-          "pseudo, ^(fcitx)$"
         ];
 
         "$mainMod" = "SUPER";
@@ -256,7 +267,7 @@ in {
           "$mainMod, mouse:273, resizewindow"
         ];
 
-        bindr = [ "$mainMod, RETURN, exec, kitty" ];
+        bindr = ["$mainMod, RETURN, exec, kitty"];
 
         plugin.split-monitor-workspaces = {
           keep_focused = 1;
@@ -291,7 +302,7 @@ in {
 
       configDir = ./widgets/ags;
 
-      extraPackages = with pkgs; [ gtksourceview webkitgtk accountsservice ];
+      extraPackages = with pkgs; [gtksourceview webkitgtk accountsservice];
     };
 
     programs.wofi.enable = true;

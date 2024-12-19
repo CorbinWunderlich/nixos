@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ config, pkgs, lib, ... }: {
   options.hyprland.enable = lib.mkEnableOption "Enables Hyprland";
 
   config = lib.mkIf config.hyprland.enable {
@@ -17,14 +17,14 @@
 
     programs.hyprland = {
       enable = true;
-      package =
-        inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
-      portalPackage =
-        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
     services.xserver.enable = true;
 
-    services.displayManager.sddm.enable = true;
+    services.displayManager = {
+      defaultSession = "hyprland";
+
+      sddm.enable = true;
+    };
   };
 }
