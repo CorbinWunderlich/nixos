@@ -24,7 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags.url = "github:Aylur/ags";
+    ags.url = "github:Aylur/ags/v1";
 
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
 
