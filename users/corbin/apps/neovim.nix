@@ -9,7 +9,7 @@
 
     home.packages = with pkgs; [
       nil
-      nixfmt-classic
+      alejandra
       stylua
       ripgrep
       fzf
