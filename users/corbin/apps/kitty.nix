@@ -1,11 +1,15 @@
-{ lib, config, ... }: {
+{
+  lib,
+  config,
+  ...
+}: {
   options.kitty.enable = lib.mkEnableOption "Enables Kitty";
 
   config = lib.mkIf config.kitty.enable {
     programs.kitty = {
       enable = true;
 
-      environment = { "TERM" = "xterm-256color"; };
+      environment = {"TERM" = "xterm-256color";};
 
       shellIntegration.mode = "no-cursor";
 

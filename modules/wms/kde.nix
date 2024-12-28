@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.kde.enable = lib.mkEnableOption "Enables KDE Plasma 6";
 
   config = lib.mkIf config.kde.enable {

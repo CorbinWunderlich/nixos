@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options.passwordmanager.enable = lib.mkEnableOption "Enables 1password";
 
   config = lib.mkIf config.passwordmanager.enable {

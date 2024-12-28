@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.xrdp.enable = lib.mkEnableOption "Enables xrdp";
 
   config = lib.mkIf config.xrdp.enable {

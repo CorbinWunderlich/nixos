@@ -1,5 +1,10 @@
-{ config, lib, inputs, ... }: {
-  imports = [ inputs.sops-nix.nixosModules.sops ];
+{
+  config,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [inputs.sops-nix.nixosModules.sops];
 
   options.sops.enable = lib.mkEnableOption "Enables SOPS";
 
@@ -11,8 +16,8 @@
       age.keyFile = "/home/corbin/.config/sops/age/keys.txt";
 
       secrets = {
-        "samba/username" = { owner = "samba-credentials"; };
-        "samba/password" = { owner = "samba-credentials"; };
+        "samba/username" = {owner = "samba-credentials";};
+        "samba/password" = {owner = "samba-credentials";};
       };
     };
 
@@ -39,6 +44,6 @@
       group = "samba-credentials";
     };
 
-    users.groups.samba-credentials = { };
+    users.groups.samba-credentials = {};
   };
 }

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.pulseaudio.enable = lib.mkEnableOption "Enables PulseAudio";
 
   config = lib.mkIf config.pulseaudio.enable {
@@ -7,8 +12,8 @@
     hardware.pulseaudio.enable = true;
     hardware.pulseaudio.support32Bit = true;
 
-    environment.systemPackages = with pkgs; [ pavucontrol ];
+    environment.systemPackages = with pkgs; [pavucontrol];
 
-    users.extraUsers.xrdp.extraGroups = [ "audio" ];
+    users.extraUsers.xrdp.extraGroups = ["audio"];
   };
 }

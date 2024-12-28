@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ./../modules/modules.nix ];
+{pkgs, ...}: {
+  imports = [./hardware-configuration.nix ./../modules/modules.nix];
 
   hyprland.enable = false;
   kde.enable = false;
@@ -10,7 +10,7 @@
 
   printing.enable = false;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

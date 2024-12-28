@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.pipewire.enable = lib.mkEnableOption "Enables Pipewire";
 
   config = lib.mkIf config.pipewire.enable {
@@ -7,6 +12,6 @@
       pulse.enable = true;
     };
 
-    environment.systemPackages = with pkgs; [ pavucontrol ];
+    environment.systemPackages = with pkgs; [pavucontrol];
   };
 }

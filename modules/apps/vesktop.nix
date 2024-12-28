@@ -1,8 +1,12 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options.vesktop.enable = lib.mkEnableOption "Enables Vesktop";
 
   config = lib.mkIf config.vesktop.enable {
-    environment.systemPackages = with pkgs; [ vesktop ];
+    environment.systemPackages = with pkgs; [vesktop];
   };
 }
-

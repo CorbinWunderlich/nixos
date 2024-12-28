@@ -36,12 +36,19 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, nixpkgs-stable, home-manager, sops-nix, nixos-hardware, ... }: {
+  outputs = inputs @ {
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    sops-nix,
+    nixos-hardware,
+    ...
+  }: {
     nixpkgs.config.allowUnfree = true;
 
     nixosConfigurations = {
       desktop2 = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
 
         system = "x86_64-linux";
 
@@ -50,7 +57,7 @@
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.useGlobalPkgs = true;
             home-manager.users.corbin = import ./users/corbin/desktop/home.nix;
           }
@@ -58,39 +65,39 @@
       };
 
       nixvm = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
 
-	system = "x86_64-linux";
+        system = "x86_64-linux";
 
-	modules = [
-	  ./nixvm/configuration.nix
+        modules = [
+          ./nixvm/configuration.nix
 
-	  home-manager.nixosModules.home-manager
-	  {
-	    home-manager.extraSpecialArgs = { inherit inputs; };
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.users.corbin = import ./users/corbin/nixvm/home.nix;
-	  }
-	];
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.useGlobalPkgs = true;
+            home-manager.users.corbin = import ./users/corbin/nixvm/home.nix;
+          }
+        ];
       };
 
       nixpad = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
 
-	system = "x86_64-linux";
+        system = "x86_64-linux";
 
-	modules = [
-	  ./nixpad/configuration.nix
+        modules = [
+          ./nixpad/configuration.nix
 
-	  home-manager.nixosModules.home-manager
-	  {
-	    home-manager.extraSpecialArgs = { inherit inputs; };
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.users.corbin = import ./users/corbin/nixpad/home.nix;
-	  }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.useGlobalPkgs = true;
+            home-manager.users.corbin = import ./users/corbin/nixpad/home.nix;
+          }
 
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
-	];
+        ];
       };
     };
   };

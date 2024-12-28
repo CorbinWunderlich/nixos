@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   imports = [
     ./wms/i3.nix
     ./wms/hyprland.nix

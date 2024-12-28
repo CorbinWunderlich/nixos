@@ -1,11 +1,16 @@
-{ config, lib, pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ./../modules/modules.nix ];
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [./hardware-configuration.nix ./../modules/modules.nix];
 
   i3.enable = true;
   kde.enable = false;
   hyprland.enable = false;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -52,4 +57,3 @@
 
   system.stateVersion = "24.11";
 }
-

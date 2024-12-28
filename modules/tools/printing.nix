@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.printing.enable = lib.mkEnableOption "Enables printing";
 
   config = lib.mkIf config.printing.enable {
@@ -6,16 +11,18 @@
 
     services.printing.enable = true;
 
-    services.printing.drivers = with pkgs; [ hplipWithPlugin ];
+    services.printing.drivers = with pkgs; [hplipWithPlugin];
 
     hardware.printers = {
-      ensurePrinters = [{
-        name = "HP_7855";
-        location = "Home";
-        deviceUri = "ipp://printer.local.";
-        model = "HP/hp-envy_photo_7800_series.ppd.gz";
-        ppdOptions.pageSize = "Letter";
-      }];
+      ensurePrinters = [
+        {
+          name = "HP_7855";
+          location = "Home";
+          deviceUri = "ipp://printer.local.";
+          model = "HP/hp-envy_photo_7800_series.ppd.gz";
+          ppdOptions.pageSize = "Letter";
+        }
+      ];
 
       ensureDefaultPrinter = "HP_7855";
     };

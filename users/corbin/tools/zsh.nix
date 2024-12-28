@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }:
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   zshrc = ''
     bindkey "''${key[Up]}" up-line-or-search
     PROMPT="%~ at %T"$'\n'"❯ "

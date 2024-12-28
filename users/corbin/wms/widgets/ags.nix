@@ -1,5 +1,11 @@
-{ inputs, pkgs, lib, config, ... }: {
-  imports = [ inputs.ags.homeManagerModules.default ];
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
+  imports = [inputs.ags.homeManagerModules.default];
 
   options.ags.enable = lib.mkEnableOption "Enables AGS";
 
@@ -9,9 +15,9 @@
 
       configDir = ./ags;
 
-      extraPackages = with pkgs; [ gtksourceview webkitgtk accountsservice ];
+      extraPackages = with pkgs; [gtksourceview webkitgtk accountsservice];
     };
 
-    home.packages = with pkgs; [ brightnessctl inotify-tools ];
+    home.packages = with pkgs; [brightnessctl inotify-tools];
   };
 }

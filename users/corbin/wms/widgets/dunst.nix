@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options.dunst.enable = lib.mkEnableOption "Enables AGS";
 
   config = lib.mkIf config.dunst.enable {

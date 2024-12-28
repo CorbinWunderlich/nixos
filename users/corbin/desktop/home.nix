@@ -1,5 +1,11 @@
-{ config, pkgs, lib, inputs, ... }: {
-  imports = [ ../modules.nix ];
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [../modules.nix];
 
   home = {
     username = "corbin";

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.prismlauncher.enable = lib.mkEnableOption "Enables PrismLauncher";
 
   config = lib.mkIf config.prismlauncher.enable {

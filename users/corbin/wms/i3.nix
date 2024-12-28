@@ -1,10 +1,15 @@
-{ config, lib, pkgs, ... }:
-let modifier = config.xsession.windowManager.i3.config.modifier;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  modifier = config.xsession.windowManager.i3.config.modifier;
 in {
   options.i3.enable = lib.mkEnableOption "Enables i3";
 
   config = lib.mkIf config.i3.enable {
-    home.packages = with pkgs; [ autotiling ];
+    home.packages = with pkgs; [autotiling];
 
     xsession.windowManager.i3 = {
       enable = true;
@@ -16,7 +21,7 @@ in {
         terminal = "kitty";
 
         fonts = {
-          names = [ "Inter" ];
+          names = ["Inter"];
           style = "SemiBold";
           size = 11.0;
         };
@@ -38,8 +43,7 @@ in {
             always = false;
           }
           {
-            command =
-              "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &";
+            command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &";
             always = true;
           }
         ];

@@ -1,7 +1,12 @@
-{ config, pkgs, lib, ... }: {
-  imports = [ ./x.nix ];
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [./x.nix];
 
-  options = { i3.enable = lib.mkEnableOption "Enables i3wm"; };
+  options = {i3.enable = lib.mkEnableOption "Enables i3wm";};
 
   config = lib.mkIf config.i3.enable {
     x.enable = true;
@@ -13,7 +18,7 @@
       user = "corbin";
     };
 
-    environment.pathsToLink = [ "/libexec" ];
+    environment.pathsToLink = ["/libexec"];
 
     services.xserver.windowManager.i3 = {
       enable = true;

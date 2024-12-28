@@ -1,4 +1,10 @@
-{ pkgs, lib, config, inputs, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}: {
   options.hyprlock.enable = lib.mkEnableOption "Enables Hyprlock";
 
   config = lib.mkIf config.hyprlock.enable {
@@ -13,8 +19,7 @@
         };
 
         background = {
-          path =
-            "/home/corbin/Pictures/wallpapers/cities/wallhaven-gpedg3_3840x2160.png";
+          path = "/home/corbin/Pictures/wallpapers/cities/wallhaven-gpedg3_3840x2160.png";
 
           blur_passes = 4;
           blur_size = 2;

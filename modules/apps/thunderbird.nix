@@ -1,7 +1,12 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.thunderbird.enable = lib.mkEnableOption "Enables Thunderbird";
 
   config = lib.mkIf config.thunderbird.enable {
-    environment.systemPackages = with pkgs; [ thunderbird ];
+    environment.systemPackages = with pkgs; [thunderbird];
   };
 }

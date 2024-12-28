@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.fcitx.enable = lib.mkEnableOption "Enables Fcitx5, an input method";
 
   config = lib.mkIf config.fcitx.enable {
@@ -31,7 +36,6 @@
               Name = "Default";
               "Default Layout" = "us";
               DefaultIM = "pinyin";
-
             };
 
             "Groups/0/Items/0" = {

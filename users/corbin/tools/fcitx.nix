@@ -1,4 +1,8 @@
-{ config, lib, ... }: {
+{
+  config,
+  lib,
+  ...
+}: {
   options.fcitx.enable = lib.mkEnableOption "Enables Fcitx5 ui config files";
 
   config = lib.mkIf config.fcitx.enable {

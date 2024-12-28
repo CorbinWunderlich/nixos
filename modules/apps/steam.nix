@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.steam.enable = lib.mkEnableOption "Enables Steam and Gamescope";
 
   config = lib.mkIf config.steam.enable {
@@ -16,8 +21,7 @@
       protonup
     ];
 
-    environment.sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-      "/home/corbin/.steam/root/compatibilitytools.d";
+    environment.sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/corbin/.steam/root/compatibilitytools.d";
 
     programs.gamemode.enable = true;
   };

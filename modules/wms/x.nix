@@ -1,4 +1,8 @@
-{ config, lib, ... }: {
+{
+  config,
+  lib,
+  ...
+}: {
   options.x.enable = lib.mkEnableOption "Enables the X Windowing Server";
 
   config = lib.mkIf config.x.enable {
@@ -13,13 +17,13 @@
       libinput = {
         enable = true;
 
-	mouse = {
-	  accelProfile = "flat";
-	};
+        mouse = {
+          accelProfile = "flat";
+        };
 
-	touchpad = {
-	  accelProfile = "flat";
-	};
+        touchpad = {
+          accelProfile = "flat";
+        };
       };
 
       desktopManager.xterm.enable = false;
