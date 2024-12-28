@@ -6,6 +6,8 @@
   config = lib.mkIf config.i3.enable {
     x.enable = true;
 
+    programs.dconf.enable = true;
+
     services.displayManager.autoLogin = {
       enable = false;
       user = "corbin";
