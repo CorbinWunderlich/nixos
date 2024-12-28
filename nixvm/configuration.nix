@@ -36,6 +36,15 @@
 
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.grid_17_3;
+
   users.users.corbin = import ./../users/corbin/corbin.nix;
   users.defaultUserShell = pkgs.zsh;
 

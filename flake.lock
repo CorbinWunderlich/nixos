@@ -1,27 +1,5 @@
 {
   "nodes": {
-    "affinity": {
-      "inputs": {
-        "elemental-wine-source": "elemental-wine-source",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "winetricks-source": "winetricks-source"
-      },
-      "locked": {
-        "lastModified": 1735030576,
-        "narHash": "sha256-NzYsjkgARls9m+qxRSTjhdlbVJyY/y4ZEqeHDZCBfdM=",
-        "owner": "mrshmllow",
-        "repo": "affinity-nix",
-        "rev": "612f7087376e15cb08b06aa4df96524e9b64c48f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mrshmllow",
-        "repo": "affinity-nix",
-        "type": "github"
-      }
-    },
     "ags": {
       "inputs": {
         "nixpkgs": "nixpkgs",
@@ -73,25 +51,6 @@
         "owner": "hyprwm",
         "repo": "aquamarine",
         "type": "github"
-      }
-    },
-    "elemental-wine-source": {
-      "flake": false,
-      "locked": {
-        "host": "gitlab.winehq.org",
-        "lastModified": 1722747031,
-        "narHash": "sha256-XVhz9p2kgFBoJ376vg8OaFXxcMEjAe9AK1hk0I1rb1Q=",
-        "owner": "ElementalWarrior",
-        "repo": "wine",
-        "rev": "a7c9b19e1a26cf49c63a7c19189a3e2bbe2c6ac2",
-        "type": "gitlab"
-      },
-      "original": {
-        "host": "gitlab.winehq.org",
-        "owner": "ElementalWarrior",
-        "ref": "affinity-photo3-wine9.13-part3",
-        "repo": "wine",
-        "type": "gitlab"
       }
     },
     "flake-compat": {
@@ -538,6 +497,21 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1735388221,
+        "narHash": "sha256-e5IOgjQf0SZcFCEV/gMGrsI0gCJyqOKShBQU0iiM3Kg=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "7c674c6734f61157e321db595dbfcd8523e04e19",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1725634671,
@@ -620,6 +594,22 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1733808091,
+        "narHash": "sha256-KWwINTQelKOoQgrXftxoqxmKFZb9pLVfnRvK270nkVk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a0f3e10d94359665dba45b71b4227b0aeb851f8e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1710272261,
         "narHash": "sha256-g0bDwXFmTE7uGDOs9HcJsfLFhH7fOsASbAuOzDC+fhQ=",
         "owner": "NixOS",
@@ -634,7 +624,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1731763621,
         "narHash": "sha256-ddcX4lQL0X05AYkrkV2LMFgGdRvgap7Ho8kgon3iWZk=",
@@ -647,6 +637,24 @@
         "owner": "NixOS",
         "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nvidia-vgpu-nixos": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1735225661,
+        "narHash": "sha256-suQ/mlIDNBmoJVBzp1/84+2Rk0QtVZGzg9U/neDB3B0=",
+        "owner": "mrzenc",
+        "repo": "nvidia-vgpu-nixos",
+        "rev": "3a75d79cb625e9423685373de81d5eedd40ae58f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mrzenc",
+        "repo": "nvidia-vgpu-nixos",
         "type": "github"
       }
     },
@@ -676,14 +684,15 @@
     },
     "root": {
       "inputs": {
-        "affinity": "affinity",
         "ags": "ags",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-contrib": "hyprland-contrib",
         "hyprlock": "hyprlock",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable_2",
+        "nvidia-vgpu-nixos": "nvidia-vgpu-nixos",
         "rose-pine-hyprcursor": "rose-pine-hyprcursor",
         "sops-nix": "sops-nix",
         "split-monitor-workspaces": "split-monitor-workspaces"
@@ -692,7 +701,7 @@
     "rose-pine-hyprcursor": {
       "inputs": {
         "hyprlang": "hyprlang_3",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "utils": "utils"
       },
       "locked": {
@@ -711,7 +720,7 @@
     },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1734546875,
@@ -838,23 +847,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "winetricks-source": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1704453875,
-        "narHash": "sha256-YTEgb19aoM54KK8/IjrspoChzVnWAEItDlTxpfpS52w=",
-        "owner": "winetricks",
-        "repo": "winetricks",
-        "rev": "bc91718a5cad45e9f33de9b351a5960d5395bed5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "winetricks",
-        "ref": "20240105",
-        "repo": "winetricks",
         "type": "github"
       }
     },
