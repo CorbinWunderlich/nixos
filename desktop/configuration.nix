@@ -66,8 +66,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  programs.zsh.enable = true;
-
   users.users.corbin = import ./../users/corbin/corbin.nix;
   users.defaultUserShell = pkgs.zsh;
 

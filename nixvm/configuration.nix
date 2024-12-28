@@ -36,8 +36,6 @@
 
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
 
-  programs.zsh.enable = true;
-
   users.users.corbin = import ./../users/corbin/corbin.nix;
   users.defaultUserShell = pkgs.zsh;
 
