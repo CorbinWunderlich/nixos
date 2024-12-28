@@ -10,6 +10,18 @@
         variant = "";
       };
 
+      libinput = {
+        enable = true;
+
+	mouse = {
+	  accelProfile = "flat";
+	};
+
+	touchpad = {
+	  accelProfile = "flat";
+	};
+      };
+
       desktopManager.xterm.enable = false;
     };
   };
