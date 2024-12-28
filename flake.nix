@@ -28,13 +28,15 @@
 
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ nixpkgs, nixpkgs-stable, home-manager, sops-nix, ... }: {
+  outputs = inputs@{ nixpkgs, nixpkgs-stable, home-manager, sops-nix, nixos-hardware, ... }: {
     nixpkgs.config.allowUnfree = true;
 
     nixosConfigurations = {
@@ -69,6 +71,25 @@
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.users.corbin = import ./users/corbin/nixvm/home.nix;
 	  }
+	];
+      };
+
+      nixpad = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+
+	system = "x86_64-linux";
+
+	modules = [
+	  ./nixpad/configuration.nix
+
+	  home-manager.nixosModules.home-manager
+	  {
+	    home-manager.extraSpecialArgs = { inherit inputs; };
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.users.corbin = import ./users/corbin/nixpad/home.nix;
+	  }
+
+          nixos-hardware.nixosModules.lenovo-thinkpad-t14
 	];
       };
     };
