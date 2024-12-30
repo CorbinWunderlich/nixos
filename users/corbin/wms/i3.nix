@@ -16,7 +16,10 @@ in {
       package = pkgs.i3;
 
       config = {
-        modifier = "Mod1";
+        modifier =
+          if config.machine.type == "vm"
+          then "Mod1"
+          else "Mod4";
 
         terminal = "kitty";
 
