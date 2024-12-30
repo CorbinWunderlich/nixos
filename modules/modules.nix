@@ -15,6 +15,7 @@
     ./tools/printing.nix
     ./tools/xrdp.nix
     ./tools/fcitx.nix
+    ./tools/bluetooth.nix
 
     ./apps/kitty.nix
     ./apps/steam.nix
@@ -52,6 +53,8 @@
   xrdp.enable = lib.mkDefault false;
 
   fcitx.enable = lib.mkDefault true;
+
+  bluetooth.enable = lib.mkDefault true;
 
   kitty.enable = lib.mkDefault true;
 
