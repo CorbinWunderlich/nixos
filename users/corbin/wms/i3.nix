@@ -24,10 +24,22 @@ in {
         terminal = "kitty";
 
         fonts = {
-          names = ["Inter"];
+          names = ["JetBrainsMono Nerd Font"];
           style = "SemiBold";
-          size = 11.0;
+          size = 9.0;
         };
+
+        bars = [
+          {
+            fonts = {
+              names = ["JetBrainsMono Nerd Font"];
+              style = "SemiBold";
+              size = 8.0;
+            };
+
+            statusCommand = "i3status";
+          }
+        ];
 
         window = {
           border = 2;
