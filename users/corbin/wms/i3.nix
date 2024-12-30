@@ -39,8 +39,8 @@ in {
 
         startup = [
           {
-            command = "${pkgs.autotiling}/bin/autotiling 1 3 5 7 9";
-            always = false;
+            command = "${pkgs.autotiling}/bin/autotiling";
+            always = true;
           }
           {
             command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &";
