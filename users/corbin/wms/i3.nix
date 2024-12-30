@@ -12,6 +12,28 @@ in {
   config = lib.mkIf config.i3.enable {
     home.packages = with pkgs; [autotiling];
 
+    home.pointerCursor = let
+      getFrom = url: hash: name: {
+        gtk.enable = true;
+        x11.enable = true;
+        name = name;
+        size = 48;
+        package = pkgs.runCommand "moveUp" {} ''
+          mkdir -p $out/share/icons
+          ln -s ${
+            pkgs.fetchzip {
+              url = url;
+              hash = hash;
+              stripRoot = false;
+            }
+          } $out/share/icons/${name}
+        '';
+      };
+    in
+      getFrom
+      "https://github.com/sevmeyer/mocu-xcursor/releases/download/1.1/mocu-xcursor-1.1.zip"
+      "sha256-KVPU545DSfjeOSoWp7k7JCezzGLNCWyV/+PtYoYV1wE=" "Mocu-Black-Left";
+
     xsession.windowManager.i3 = {
       enable = true;
       package = pkgs.i3;
