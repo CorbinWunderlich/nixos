@@ -84,6 +84,10 @@ in {
             command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &";
             always = true;
           }
+          {
+            command = "${pkgs._1password-gui}/bin/1password --silent";
+            always = true;
+          }
         ];
 
         defaultWorkspace = "workspace number 1";
