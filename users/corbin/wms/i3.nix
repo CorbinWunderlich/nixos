@@ -79,15 +79,29 @@ in {
           settings.format = "%usage";
         };
 
-        "tztime local" = {
+        "battery all" = {
           position = 2;
+          enable = config.machine.type == "laptop";
+          settings = {
+            format = "%percentage %status";
+            format_percentage = "%.0f%s";
+            status_chr = "and charging";
+            status_bat = "on battery";
+            status_unk = "";
+            status_full = "";
+            status_idle = "";
+            last_full_capacity = true;
+          };
+        };
+
+        "tztime local" = {
+          position = 3;
           settings.format = "%H:%M:%S";
         };
 
         "ipv6".enable = false;
         "wireless _first_".enable = false;
         "ethernet _first_".enable = false;
-        "battery all".enable = false;
         "disk /".enable = false;
         "load".enable = false;
         "memory".enable = false;
