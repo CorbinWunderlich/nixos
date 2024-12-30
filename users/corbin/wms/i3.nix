@@ -5,6 +5,7 @@
   ...
 }: let
   modifier = config.xsession.windowManager.i3.config.modifier;
+  terminal = config.xsession.windowManager.i3.config.terminal;
 in {
   options.i3.enable = lib.mkEnableOption "Enables i3";
 
@@ -65,7 +66,22 @@ in {
 
         defaultWorkspace = "workspace number 1";
 
-        keybindings = lib.mkOptionDefault {
+        modes = {
+          resize = {
+            Up = "resize shrink width 10 px or 10 ppt";
+            Down = "resize grow height 10 px or 10 ppt";
+            Left = "resize shrink width 10 px or 10 ppt";
+            Right = "resize grow width 10 px or 10 ppt";
+
+            Return = "mode default";
+            Escape = "mode default";
+            "${modifier}+r" = "mode default";
+          };
+        };
+
+        keybindings = {
+          "${modifier}+Shift+r" = "restart";
+
           "${modifier}+ctrl+1" = "workspace number 1";
           "${modifier}+ctrl+2" = "workspace number 2";
           "${modifier}+ctrl+3" = "workspace number 3";
@@ -76,6 +92,38 @@ in {
           "${modifier}+ctrl+8" = "workspace number 8";
           "${modifier}+ctrl+9" = "workspace number 9";
           "${modifier}+ctrl+0" = "workspace number 10";
+
+          "${modifier}+Shift+1" = "move container to workspace number 1";
+          "${modifier}+Shift+2" = "move container to workspace number 2";
+          "${modifier}+Shift+3" = "move container to workspace number 3";
+          "${modifier}+Shift+4" = "move container to workspace number 4";
+          "${modifier}+Shift+5" = "move container to workspace number 5";
+          "${modifier}+Shift+6" = "move container to workspace number 6";
+          "${modifier}+Shift+7" = "move container to workspace number 7";
+          "${modifier}+Shift+8" = "move container to workspace number 8";
+          "${modifier}+Shift+9" = "move container to workspace number 9";
+          "${modifier}+Shift+0" = "move container to workspace number 10";
+
+          "${modifier}+Left" = "focus left";
+          "${modifier}+Right" = "focus right";
+          "${modifier}+Up" = "focus up";
+          "${modifier}+Down" = "focus down";
+
+          "${modifier}+Shift+Left" = "move left";
+          "${modifier}+Shift+Right" = "move right";
+          "${modifier}+Shift+Up" = "move up";
+          "${modifier}+Shift+Down" = "move down";
+
+          "${modifier}+r" = "mode resize";
+
+          "${modifier}+f" = "fullscreen toggle";
+
+          "${modifier}+Shift+v" = "focus mode_toggle";
+          "${modifier}+v" = "floating toggle";
+
+          "${modifier}+Return" = "exec ${terminal}";
+          "${modifier}+d" = "exec dmenu_run -fn 'JetBrainsMono Nerd Font-10' -nb black";
+          "${modifier}+Shift+q" = "kill";
         };
       };
     };
