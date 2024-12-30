@@ -47,8 +47,6 @@
     nixos-hardware,
     ...
   }: {
-    nixpkgs.config.allowUnfree = true;
-
     nixosConfigurations = {
       desktop2 = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};

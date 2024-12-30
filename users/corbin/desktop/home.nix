@@ -1,11 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
-}: {
+{...}: {
   imports = [../modules.nix];
+
+  machine.type = "desktop"; # Result of hostnamectl chassis
 
   home = {
     username = "corbin";
