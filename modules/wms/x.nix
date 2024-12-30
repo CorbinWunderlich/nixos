@@ -14,19 +14,19 @@
         variant = "";
       };
 
-      libinput = {
-        enable = true;
+      desktopManager.xterm.enable = false;
+    };
 
-        mouse = {
-          accelProfile = "flat";
-        };
+    services.libinput = {
+      enable = true;
 
-        touchpad = {
-          accelProfile = "flat";
-        };
+      mouse = {
+        accelProfile = "flat";
       };
 
-      desktopManager.xterm.enable = false;
+      touchpad = {
+        accelProfile = "flat";
+      };
     };
   };
 }
