@@ -11,5 +11,9 @@
     fonts.packages = with pkgs; [nerd-fonts.jetbrains-mono];
 
     environment.systemPackages = [pkgs.kitty];
+
+    environment.sessionVariables = {
+      GLFW_IM_MODULE = "ibus";
+    };
   };
 }
