@@ -57,7 +57,7 @@ in {
             fonts = {
               names = ["JetBrainsMono Nerd Font"];
               style = "SemiBold";
-              size = 8.0;
+              size = 9.0;
             };
 
             statusCommand = "i3status";
