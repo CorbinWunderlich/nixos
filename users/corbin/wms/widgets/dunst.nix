@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  options.dunst.enable = lib.mkEnableOption "Enables AGS";
+  options.dunst.enable = lib.mkEnableOption "Enables the dunst notification daemon";
 
   config = lib.mkIf config.dunst.enable {
     services.dunst = {
@@ -44,7 +44,10 @@
 
           indicate_hidden = "yes";
 
-          transparency = 100;
+          transparency =
+            if config.wayland.windowManager.hyprland.enable
+            then 100
+            else 0;
 
           separator_height = 10;
 
@@ -54,9 +57,10 @@
 
           text_icon_padding = 0;
 
-          frame_width = 0;
-
-          frame_color = "#ffffff";
+          frame_width =
+            if config.wayland.windowManager.hyprland.enable
+            then 0
+            else 2;
 
           gap_size = 20;
 
@@ -101,7 +105,11 @@
           title = "Dunst";
           class = "Dunst";
 
-          corner_radius = 10;
+          corner_radius =
+            if config.wayland.windowManager.hyprland.enable
+            then 10
+            else 0;
+
           corners = "all";
 
           ignore_dbusclose = false;
