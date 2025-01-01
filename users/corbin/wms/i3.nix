@@ -10,7 +10,7 @@ in {
   options.i3.enable = lib.mkEnableOption "Enables i3";
 
   config = lib.mkIf config.i3.enable {
-    home.packages = with pkgs; [autotiling];
+    home.packages = with pkgs; [autotiling nwg-look];
 
     home.pointerCursor = let
       getFrom = url: hash: name: {
@@ -105,52 +105,100 @@ in {
           };
         };
 
-        keybindings = {
-          "${modifier}+Shift+r" = "restart";
+        keybindings =
+          if (config.machine.type == "vm")
+          then {
+            "${modifier}+Shift+r" = "restart";
 
-          "${modifier}+ctrl+1" = "workspace number 1";
-          "${modifier}+ctrl+2" = "workspace number 2";
-          "${modifier}+ctrl+3" = "workspace number 3";
-          "${modifier}+ctrl+4" = "workspace number 4";
-          "${modifier}+ctrl+5" = "workspace number 5";
-          "${modifier}+ctrl+6" = "workspace number 6";
-          "${modifier}+ctrl+7" = "workspace number 7";
-          "${modifier}+ctrl+8" = "workspace number 8";
-          "${modifier}+ctrl+9" = "workspace number 9";
-          "${modifier}+ctrl+0" = "workspace number 10";
+            "${modifier}+ctrl+1" = "workspace number 1";
+            "${modifier}+ctrl+2" = "workspace number 2";
+            "${modifier}+ctrl+3" = "workspace number 3";
+            "${modifier}+ctrl+4" = "workspace number 4";
+            "${modifier}+ctrl+5" = "workspace number 5";
+            "${modifier}+ctrl+6" = "workspace number 6";
+            "${modifier}+ctrl+7" = "workspace number 7";
+            "${modifier}+ctrl+8" = "workspace number 8";
+            "${modifier}+ctrl+9" = "workspace number 9";
+            "${modifier}+ctrl+0" = "workspace number 10";
 
-          "${modifier}+Shift+1" = "move container to workspace number 1";
-          "${modifier}+Shift+2" = "move container to workspace number 2";
-          "${modifier}+Shift+3" = "move container to workspace number 3";
-          "${modifier}+Shift+4" = "move container to workspace number 4";
-          "${modifier}+Shift+5" = "move container to workspace number 5";
-          "${modifier}+Shift+6" = "move container to workspace number 6";
-          "${modifier}+Shift+7" = "move container to workspace number 7";
-          "${modifier}+Shift+8" = "move container to workspace number 8";
-          "${modifier}+Shift+9" = "move container to workspace number 9";
-          "${modifier}+Shift+0" = "move container to workspace number 10";
+            "${modifier}+Shift+1" = "move container to workspace number 1";
+            "${modifier}+Shift+2" = "move container to workspace number 2";
+            "${modifier}+Shift+3" = "move container to workspace number 3";
+            "${modifier}+Shift+4" = "move container to workspace number 4";
+            "${modifier}+Shift+5" = "move container to workspace number 5";
+            "${modifier}+Shift+6" = "move container to workspace number 6";
+            "${modifier}+Shift+7" = "move container to workspace number 7";
+            "${modifier}+Shift+8" = "move container to workspace number 8";
+            "${modifier}+Shift+9" = "move container to workspace number 9";
+            "${modifier}+Shift+0" = "move container to workspace number 10";
 
-          "${modifier}+Left" = "focus left";
-          "${modifier}+Right" = "focus right";
-          "${modifier}+Up" = "focus up";
-          "${modifier}+Down" = "focus down";
+            "${modifier}+Left" = "focus left";
+            "${modifier}+Right" = "focus right";
+            "${modifier}+Up" = "focus up";
+            "${modifier}+Down" = "focus down";
 
-          "${modifier}+Shift+Left" = "move left";
-          "${modifier}+Shift+Right" = "move right";
-          "${modifier}+Shift+Up" = "move up";
-          "${modifier}+Shift+Down" = "move down";
+            "${modifier}+Shift+Left" = "move left";
+            "${modifier}+Shift+Right" = "move right";
+            "${modifier}+Shift+Up" = "move up";
+            "${modifier}+Shift+Down" = "move down";
 
-          "${modifier}+r" = "mode resize";
+            "${modifier}+r" = "mode resize";
 
-          "${modifier}+f" = "fullscreen toggle";
+            "${modifier}+f" = "fullscreen toggle";
 
-          "${modifier}+Shift+v" = "focus mode_toggle";
-          "${modifier}+v" = "floating toggle";
+            "${modifier}+Shift+v" = "focus mode_toggle";
+            "${modifier}+v" = "floating toggle";
 
-          "${modifier}+Return" = "exec ${terminal}";
-          "${modifier}+d" = "exec dmenu_run -fn 'JetBrainsMono Nerd Font-10' -nb black";
-          "${modifier}+Shift+q" = "kill";
-        };
+            "${modifier}+Return" = "exec ${terminal}";
+            "${modifier}+d" = "exec dmenu_run -fn 'JetBrainsMono Nerd Font-10' -nb black";
+            "${modifier}+Shift+q" = "kill";
+          }
+          else {
+            "${modifier}+Shift+r" = "restart";
+
+            "${modifier}+1" = "workspace number 1";
+            "${modifier}+2" = "workspace number 2";
+            "${modifier}+3" = "workspace number 3";
+            "${modifier}+4" = "workspace number 4";
+            "${modifier}+5" = "workspace number 5";
+            "${modifier}+6" = "workspace number 6";
+            "${modifier}+7" = "workspace number 7";
+            "${modifier}+8" = "workspace number 8";
+            "${modifier}+9" = "workspace number 9";
+            "${modifier}+0" = "workspace number 10";
+
+            "${modifier}+Shift+1" = "move container to workspace number 1";
+            "${modifier}+Shift+2" = "move container to workspace number 2";
+            "${modifier}+Shift+3" = "move container to workspace number 3";
+            "${modifier}+Shift+4" = "move container to workspace number 4";
+            "${modifier}+Shift+5" = "move container to workspace number 5";
+            "${modifier}+Shift+6" = "move container to workspace number 6";
+            "${modifier}+Shift+7" = "move container to workspace number 7";
+            "${modifier}+Shift+8" = "move container to workspace number 8";
+            "${modifier}+Shift+9" = "move container to workspace number 9";
+            "${modifier}+Shift+0" = "move container to workspace number 10";
+
+            "${modifier}+Left" = "focus left";
+            "${modifier}+Right" = "focus right";
+            "${modifier}+Up" = "focus up";
+            "${modifier}+Down" = "focus down";
+
+            "${modifier}+Shift+Left" = "move left";
+            "${modifier}+Shift+Right" = "move right";
+            "${modifier}+Shift+Up" = "move up";
+            "${modifier}+Shift+Down" = "move down";
+
+            "${modifier}+r" = "mode resize";
+
+            "${modifier}+f" = "fullscreen toggle";
+
+            "${modifier}+Shift+v" = "focus mode_toggle";
+            "${modifier}+v" = "floating toggle";
+
+            "${modifier}+Return" = "exec ${terminal}";
+            "${modifier}+d" = "exec dmenu_run -fn 'JetBrainsMono Nerd Font-10' -nb black";
+            "${modifier}+Shift+q" = "kill";
+          };
       };
     };
 
@@ -224,6 +272,12 @@ in {
 
     gtk = {
       enable = true;
+
+      iconTheme = {
+        name = "kora";
+        package = pkgs.kora-icon-theme;
+      };
+
       theme = {
         name = "Adwaita-dark";
         package = pkgs.gnome-themes-extra;
