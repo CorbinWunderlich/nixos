@@ -42,7 +42,10 @@
 
         active_tab_font_style = "bold";
 
-        background_opacity = 0;
+        background_opacity =
+          if config.wayland.windowManager.hyprland.enable
+          then 0
+          else 100;
       };
     };
   };
