@@ -28,6 +28,7 @@
     ./apps/mission-center.nix
     ./apps/thunderbird.nix
     ./apps/chromium.nix
+    ./apps/3d-printing.nix
 
     ./common.nix
   ];
@@ -77,4 +78,6 @@
   thunderbird.enable = lib.mkDefault true;
 
   chromium.enable = lib.mkDefault true;
+
+  bambu-studio.enable = lib.mkDefault true;
 }
