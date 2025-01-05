@@ -8,6 +8,8 @@
 
   btrfs-assistant.enable = false;
 
+  remmina.enable = false;
+
   printing.enable = false;
 
   bluetooth.enable = false;

@@ -29,6 +29,7 @@
     ./apps/thunderbird.nix
     ./apps/chromium.nix
     ./apps/3d-printing.nix
+    ./apps/remmina.nix
 
     ./common.nix
   ];
@@ -80,4 +81,6 @@
   chromium.enable = lib.mkDefault true;
 
   bambu-studio.enable = lib.mkDefault true;
+
+  remmina.enable = lib.mkDefault true;
 }
