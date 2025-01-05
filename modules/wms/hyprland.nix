@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   options.hyprland.enable = lib.mkEnableOption "Enables Hyprland";
@@ -22,6 +23,7 @@
 
     programs.hyprland = {
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
     services.xserver.enable = true;
