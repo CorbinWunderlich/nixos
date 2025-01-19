@@ -10,7 +10,7 @@ in {
   options.i3.enable = lib.mkEnableOption "Enables i3";
 
   config = lib.mkIf config.i3.enable {
-    home.packages = with pkgs; [autotiling nwg-look];
+    home.packages = with pkgs; [autotiling nwg-look brightnessctl];
 
     home.pointerCursor = let
       getFrom = url: hash: name: {
@@ -198,6 +198,9 @@ in {
             "${modifier}+Return" = "exec ${terminal}";
             "${modifier}+d" = "exec dmenu_run -fn 'JetBrainsMono Nerd Font-10' -nb black";
             "${modifier}+Shift+q" = "kill";
+
+            "XF86MonBrightnessDown" = "exec brightnessctl s 5%-";
+            "XF86MonBrightnessUp" = "exec brightnessctl s 5%+";
           };
       };
     };
