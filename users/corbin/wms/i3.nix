@@ -151,6 +151,7 @@ in {
 
             "${modifier}+Return" = "exec ${terminal}";
             "${modifier}+d" = "exec dmenu_run -fn 'JetBrainsMono Nerd Font-10' -nb black";
+            "${modifier}+e" = ''exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'JetBrainsMono Nerd Font-10' -nb black"'';
             "${modifier}+Shift+q" = "kill";
           }
           else {
@@ -197,6 +198,7 @@ in {
 
             "${modifier}+Return" = "exec ${terminal}";
             "${modifier}+d" = "exec dmenu_run -fn 'JetBrainsMono Nerd Font-10' -nb black";
+            "${modifier}+e" = ''exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'JetBrainsMono Nerd Font-10' -nb black"'';
             "${modifier}+Shift+q" = "kill";
 
             "XF86MonBrightnessDown" = "exec brightnessctl s 5%-";
