@@ -640,21 +640,21 @@
         "type": "github"
       }
     },
-    "nvidia-vgpu-nixos": {
+    "nvidia-vgpu": {
       "inputs": {
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1735225661,
-        "narHash": "sha256-suQ/mlIDNBmoJVBzp1/84+2Rk0QtVZGzg9U/neDB3B0=",
+        "lastModified": 1737570308,
+        "narHash": "sha256-eyn14qDatzJIdamD3jS+yMAWSNo1FgIbOcIe8HiQ1kk=",
         "owner": "mrzenc",
-        "repo": "nvidia-vgpu-nixos",
-        "rev": "3a75d79cb625e9423685373de81d5eedd40ae58f",
+        "repo": "vgpu4nixos",
+        "rev": "31ce81c3d694cabf30fc117c689f7bc49f4f6675",
         "type": "github"
       },
       "original": {
         "owner": "mrzenc",
-        "repo": "nvidia-vgpu-nixos",
+        "repo": "vgpu4nixos",
         "type": "github"
       }
     },
@@ -692,7 +692,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable_2",
-        "nvidia-vgpu-nixos": "nvidia-vgpu-nixos",
+        "nvidia-vgpu": "nvidia-vgpu",
         "rose-pine-hyprcursor": "rose-pine-hyprcursor",
         "sops-nix": "sops-nix",
         "split-monitor-workspaces": "split-monitor-workspaces"

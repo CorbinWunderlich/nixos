@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    nvidia-vgpu-nixos.url = "github:mrzenc/nvidia-vgpu-nixos";
+    nvidia-vgpu.url = "github:mrzenc/vgpu4nixos";
 
     sops-nix.url = "github:Mic92/sops-nix";
 
@@ -43,7 +43,7 @@
     nixpkgs-stable,
     home-manager,
     sops-nix,
-    nvidia-vgpu-nixos,
+    nvidia-vgpu,
     nixos-hardware,
     ...
   }: {
@@ -73,7 +73,7 @@
         modules = [
           ./nixvm/configuration.nix
 
-          nvidia-vgpu-nixos.nixosModules.guest
+          nvidia-vgpu.nixosModules.guest
 
           home-manager.nixosModules.home-manager
           {
