@@ -23,8 +23,7 @@ in {
       shellAliases = {
         ll = "ls -l";
         grim = "grimblast";
-        "sudo nvim ." = "sudo -Es nvim .";
-        "sudo nvim /etc/nixos" = "sudo -Es nvim /etc/nixos";
+        svim = "sudo -Es nvim";
       };
 
       history = {
