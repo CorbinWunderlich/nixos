@@ -34,6 +34,8 @@ in {
       pkgs.wl-clipboard
       pkgs.xorg.xrandr
       inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+      pkgs.hyprpicker
+      pkgs.libnotify
     ];
 
     home.pointerCursor = {
@@ -158,15 +160,14 @@ in {
           enabled = "yes";
 
           bezier = [
-            "openBezier, 0.2, 0.9, 0.1, 1.05"
+            "openBezier, 0.2, 0.9, 0.1, 1.07"
             "workspaceBezier, 0.4, 0.9, 0.1, 1"
           ];
 
           animation = [
-            "windows, 1, 7, openBezier"
+            "windows, 1, 6, openBezier"
+            "windowsIn, 1, 6, openBezier, popin 0%"
             "windowsOut, 1, 7, default, popin 80%"
-            "border, 1, 10, default"
-            "borderangle, 1, 8, default"
             "fade, 1, 7, default"
             "workspaces, 1, 7, workspaceBezier, slide"
           ];
@@ -219,6 +220,7 @@ in {
           "$mainMod, E, exec, thunar"
           "$mainMod, V, togglefloating, "
           "$mainMod, D, exec, wofi --show drun -W 335 -H 600 --allow-images -b -n -e -i -c ~/.config/wofi/config"
+          ''$mainMod, C, exec, notify-send -t 10000 "Your color was: $(hyprpicker -a)"''
           "$mainMod, P, pseudo,"
           "$mainMod, J, togglesplit,"
 
