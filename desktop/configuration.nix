@@ -51,7 +51,7 @@
   services.btrfs.autoScrub.enable = true;
 
   networking = {
-    hostName = "desktop2";
+    hostName = "desktop";
     networkmanager.enable = true;
   };
 
