@@ -74,7 +74,7 @@ const timeLabel = () => Label({
 
     label: time.bind(),
 
-    connections: [[100000, self => {
+    connections: [[100, self => {
         const weekdays = ["Sunday", "Monday", "Tuesday", " Wednesday", "Thursday", "Friday", "Saturday"]
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         const today = new Date()

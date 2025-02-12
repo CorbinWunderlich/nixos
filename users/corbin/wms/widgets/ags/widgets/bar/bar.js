@@ -21,9 +21,9 @@ const monitorOneWorkspaces = () => EventBox({
             child: Label("")
         })),
         connections: [[hyprland, self => self.children.forEach(button => {
-                    button.visible = (hyprland.workspaces.some(ws => ws.id === Number.parseInt(button.name) && Number.parseInt(button.name) > 10));
-                    button.toggleClassName("selected-workspace", hyprland.active.workspace.id === Number.parseInt(button.name));
-                })]]
+            button.visible = (hyprland.workspaces.some(ws => ws.id === Number.parseInt(button.name) && Number.parseInt(button.name) > 10));
+            button.toggleClassName("selected-workspace", hyprland.active.workspace.id === Number.parseInt(button.name));
+        })]]
     })
 });
 const monitorTwoWorkspaces = () => EventBox({
@@ -41,9 +41,9 @@ const monitorTwoWorkspaces = () => EventBox({
             child: Label("")
         })),
         connections: [[hyprland, self => self.children.forEach(button => {
-                    button.visible = hyprland.workspaces.some(ws => ws.id === Number.parseInt(button.name));
-                    button.toggleClassName("selected-workspace", hyprland.active.workspace.id === Number.parseInt(button.name));
-                })]]
+            button.visible = hyprland.workspaces.some(ws => ws.id === Number.parseInt(button.name));
+            button.toggleClassName("selected-workspace", hyprland.active.workspace.id === Number.parseInt(button.name));
+        })]]
     })
 });
 const time = new Variable("0:0:0", {
@@ -52,12 +52,12 @@ const time = new Variable("0:0:0", {
 const timeLabel = () => Label({
     className: "time",
     label: time.bind(),
-    connections: [[100000, self => {
-                const weekdays = ["Sunday", "Monday", "Tuesday", " Wednesday", "Thursday", "Friday", "Saturday"];
-                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                const today = new Date();
-                self.tooltipText = `It is ${weekdays[today.getDay()]}, ${months[today.getMonth()]} ${today.getDate()}`;
-            }]]
+    connections: [[100, self => {
+        const weekdays = ["Sunday", "Monday", "Tuesday", " Wednesday", "Thursday", "Friday", "Saturday"];
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const today = new Date();
+        self.tooltipText = `It is ${weekdays[today.getDay()]}, ${months[today.getMonth()]} ${today.getDate()}`;
+    }]]
 });
 function getWifiLabel() {
     if (network.primary === "wired") {
@@ -82,12 +82,12 @@ function getWifiLabel() {
 const wifiLabel = () => Label({
     classNames: ["icon", "wifi"],
     connections: [[network, self => {
-                self.label = getWifiLabel();
-                if (network.primary == "wifi")
-                    self.tooltipText = `WiFi is at ${network.wifi?.strength}% strength`;
-                if (network.primary == "wired")
-                    self.tooltipText = `EtherNet is ${network.wired?.internet}`;
-            }]]
+        self.label = getWifiLabel();
+        if (network.primary == "wifi")
+            self.tooltipText = `WiFi is at ${network.wifi?.strength}% strength`;
+        if (network.primary == "wired")
+            self.tooltipText = `EtherNet is ${network.wired?.internet}`;
+    }]]
 });
 function getBluetoothLabel() {
     if (bluetooth.enabled)
@@ -98,9 +98,9 @@ function getBluetoothLabel() {
 const bluetoothIcon = () => Label({
     classNames: ["icon", "bluetooth"],
     connections: [[bluetooth, self => {
-                self.label = getBluetoothLabel();
-                self.tooltipText = `Connected to ${bluetooth.devices.length} device${bluetooth.devices.length === 1 ? "" : "s"}`;
-            }]]
+        self.label = getBluetoothLabel();
+        self.tooltipText = `Connected to ${bluetooth.devices.length} device${bluetooth.devices.length === 1 ? "" : "s"}`;
+    }]]
 });
 function getBatteryLabel() {
     if (battery.charging) {
@@ -160,17 +160,17 @@ function secondsToHms(durationSeconds) {
 const batteryIcon = () => Label({
     className: "icon",
     connections: [[battery, self => {
-                self.label = getBatteryLabel();
-                self.tooltipText = battery.charging ? `${battery.timeRemaining} until charged` : `${secondsToHms(battery.timeRemaining)}until empty`;
-            }]],
+        self.label = getBatteryLabel();
+        self.tooltipText = battery.charging ? `${battery.timeRemaining} until charged` : `${secondsToHms(battery.timeRemaining)}until empty`;
+    }]],
 });
 const batteryLabel = () => Label({
     className: "battery",
     hpack: "end",
     connections: [[battery, self => {
-                self.label = battery.percent + "%";
-                self.tooltipText = battery.charging ? `${secondsToHms(battery.timeRemaining)} until charged` : `${secondsToHms(battery.timeRemaining)}until empty`;
-            }]]
+        self.label = battery.percent + "%";
+        self.tooltipText = battery.charging ? `${secondsToHms(battery.timeRemaining)} until charged` : `${secondsToHms(battery.timeRemaining)}until empty`;
+    }]]
 });
 const batteryContainer = () => Box({
     vertical: false,
