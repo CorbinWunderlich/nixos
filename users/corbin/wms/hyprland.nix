@@ -142,7 +142,7 @@ in {
             "ignorezero, ulauncher"
             "ignorezero, launcher"
             "blur, ags-drawer"
-            "blur, ags-bar,"
+            "blur, top-bar"
             "blur, quick-settings"
             "ignorezero, quick-settings"
             "blur, volume-popup"
@@ -183,9 +183,9 @@ in {
         };
 
         windowrule = [
-          "float, ^(1Password)$"
-          "center, ^(1Password)$"
-          "size 1000 700, ^(1Password)$"
+          #"float, ^(1Password)$"
+          #"center, ^(1Password)$"
+          #"size 1000 700, ^(1Password)$"
 
           "opacity 0.999, ^(firefox)$"
 

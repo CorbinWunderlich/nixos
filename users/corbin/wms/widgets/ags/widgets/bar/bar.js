@@ -187,7 +187,8 @@ const workspaces = () => Box({
     children: [
         monitorOneWorkspaces(),
         monitorTwoWorkspaces(),
-    ]
+    ],
+    css: "padding-left: 2px"
 });
 const end = () => Box({
     vertical: false,

@@ -9,8 +9,8 @@
 }
 
 .workspace {
-    min-width: 16px;
-    min-height: 16px;
+    min-width: 10px;
+    min-height: 10px;
 
     margin: 0px;
     margin-left: 5px;
@@ -47,7 +47,7 @@
     min-width: 45px;
 }
 
-.workspace > label {
+.workspace>label {
     padding: 0px;
     font-size: 0px;
 }
