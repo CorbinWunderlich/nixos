@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   options.neovim.enable = lib.mkEnableOption "Enables Neovim";
@@ -13,23 +14,10 @@
     };
 
     home.packages = with pkgs; [
-      nil
       alejandra
-      stylua
       ripgrep
       fzf
-      nodejs
-      cargo
-      libgcc
+      inputs.nixvim.packages.x86_64-linux.default
     ];
-
-    programs.neovim = {
-      enable = true;
-
-      vimAlias = true;
-      viAlias = true;
-
-      defaultEditor = true;
-    };
   };
 }
