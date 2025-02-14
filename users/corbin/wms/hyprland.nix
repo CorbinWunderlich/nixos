@@ -184,9 +184,9 @@ in {
         };
 
         windowrule = [
-          #"float, ^(1Password)$"
-          #"center, ^(1Password)$"
-          #"size 1000 700, ^(1Password)$"
+          "float, ^(1Password)$"
+          "center, ^(1Password)$"
+          "size 1000 700, ^(1Password)$"
 
           "opacity 0.999, ^(firefox)$"
 
